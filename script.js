@@ -184,3 +184,31 @@ document.addEventListener('DOMContentLoaded', function() {
             .join('\n');
     }
 });
+
+// Create twinkling stars
+document.addEventListener('DOMContentLoaded', function() {
+    const starsContainer = document.getElementById('stars');
+    const starCount = 200;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random properties
+        const size = Math.random() * 2;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const duration = 2 + Math.random() * 5;
+        
+        star.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            left: ${x}%;
+            top: ${y}%;
+            --duration: ${duration}s;
+            opacity: ${Math.random()};
+        `;
+        
+        starsContainer.appendChild(star);
+    }
+});
